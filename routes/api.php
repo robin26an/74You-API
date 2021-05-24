@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
@@ -22,9 +23,13 @@ use App\Http\Controllers\VehicleController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->post('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post("auth/login",[AuthController::class,'login']);
+Route::get("auth/logout",[AuthController::class,'logout']);
+Route::get("auth/attempt/{id}",[AuthController::class,'attempt']);
 
 Route::get("users/{id?}",[UsersController::class,'list']);
 Route::post("users/add",[UsersController::class,'add']);

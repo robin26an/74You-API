@@ -2,15 +2,16 @@
 
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Rental;
 
 
 class RentalController extends Controller
 {
-    function list($id=null)
+    function list($id = null)
     {
-        return $id?Rental::find($id):Rental::all();
+        return $id ? Rental::find($id) : Rental::all();
     }
 
     function add(Request $req)
@@ -25,12 +26,9 @@ class RentalController extends Controller
         $rental->endAgency_id = $req->endAgency_id;
         $rental->customer_id = $req->customer_id;
         $result = $rental->save();
-        if ($result)
-        {
+        if ($result) {
             return ["Resultat" => "Les données ont été enregistrées"];
-        }
-        else
-        {
+        } else {
             return ["Resultat" => "Opération refusée"];
         }
     }
@@ -47,13 +45,10 @@ class RentalController extends Controller
         $rental->endAgency_id = $req->endAgency_id;
         $rental->customer_id = $req->customer_id;
         $result = $rental->save();
-        if($result)
-        {
-            return ["Resultat"=>"Données modifiées"];
-        }
-        else
-        {
-            return ["Resultat"=>"Modification échouée"];
+        if ($result) {
+            return ["Resultat" => "Données modifiées"];
+        } else {
+            return ["Resultat" => "Modification échouée"];
         }
 
     }
