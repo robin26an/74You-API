@@ -16,6 +16,7 @@ class RentalController extends Controller
 
     function add(Request $req)
     {
+
         $rental = new Rental;
         $rental->id = $req->id;
         $rental->vehicle_id = $req->vehicle_id;

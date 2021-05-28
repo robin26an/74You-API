@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +24,7 @@ class AuthController extends Controller
 
     public function attempt($id)
     {
-        $user=User::find($id);
+        $user=Users::find($id);
         return response()->json(Auth::viaRemember());
     }
 }
