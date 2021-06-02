@@ -26,6 +26,7 @@ class RentalController extends Controller
         $rental->startAgency_id = $req->startAgency_id;
         $rental->endAgency_id = $req->endAgency_id;
         $rental->customer_id = $req->customer_id;
+        $rental->services_id = $req->services_id;
         $result = $rental->save();
         if ($result) {
             return ["Resultat" => "Les données ont été enregistrées"];
@@ -45,6 +46,7 @@ class RentalController extends Controller
         $rental->startAgency_id = $req->startAgency_id;
         $rental->endAgency_id = $req->endAgency_id;
         $rental->customer_id = $req->customer_id;
+        $rental->services_id = $req->services_id;
         $result = $rental->save();
         if ($result) {
             return ["Resultat" => "Données modifiées"];

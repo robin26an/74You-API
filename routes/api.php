@@ -64,3 +64,4 @@ Route::get("vehicle/{id?}",[VehicleController::class,'list']);
 Route::post("vehicle/add",[VehicleController::class,'add']);
 Route::put("vehicle/update",[VehicleController::class,'update']);
 
+Route::get("service/{id?}",[\App\Http\Controllers\ServiceController::class,'list']);
